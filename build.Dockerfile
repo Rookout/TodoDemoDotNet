@@ -9,4 +9,4 @@ RUN ["C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\msbuild.exe", "C:\\build\\Tod
 
 ## Usage: build image, then create container and copy out the bin directory.
 
-CMD ["powershell"
+CMD ["powershell"]
