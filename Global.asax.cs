@@ -27,7 +27,15 @@ namespace TodoDemoDotNet
             {
                 while (true)
                 {
-                    Console.Out.Flush();
+                    try
+                    {
+
+                        Console.Out.Flush();
+                    }
+                    catch
+                    {
+                    }
+
                     Thread.Sleep(1000);
                 }
             });
