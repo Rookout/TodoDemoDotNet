@@ -44,7 +44,6 @@ namespace TodoDemoDotNet
             try
             {
                 Rook.RookOptions o = new RookOptions();
-                o.token = "TOKEN";
                 o.debug = true;
                 Rook.API.Start(o);
             }
