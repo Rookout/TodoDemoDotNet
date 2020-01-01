@@ -1,4 +1,4 @@
-name: .NET Framework
+name: .NET Framework Todo Demo App
 
 on: [push]
 
@@ -13,4 +13,4 @@ jobs:
       - name: Build and Deploy
         run: |
            cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-           .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:DeployOnBuild=true /p:PublishProfile=DemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_USER_PASSWORD }}
+           .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:DeployOnBuild=true /p:PublishProfile=DemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_USER_PASSWORD }} /p:VisualStudioVersion=17
