@@ -17,7 +17,11 @@ jobs:
         run: |
            cd $Env:GITHUB_WORKSPACE
            nuget restore
-      - name: Build and Deploy
+      - name: Build and Deploy - Staging
+        run: |
+           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+           .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:DeployOnBuild=true /p:PublishProfile=StagingDemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_STAGING_USER_PASSWORD }}
+      - name: Build and Deploy - Production
         run: |
            cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
            .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:DeployOnBuild=true /p:PublishProfile=DemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_USER_PASSWORD }}
