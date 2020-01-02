@@ -24,7 +24,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: TodosController.cs
-          path: $Env:GITHUB_WORKSPACE\Controllers\TodosController.cs
+          path: Controllers\TodosController.cs
       - name: Build and Deploy - Production
         run: |
            cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
