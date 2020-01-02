@@ -16,7 +16,7 @@ jobs:
       - name: Clean
         run: |
           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-           .\MSBuild.exe $Env:GITHUB_WORKSPACE /t:clean
+           .\MSBuild.exe $Env:GITHUB_WORKSPACE /t:Clean
       - name: Restore
         run: |
            cd $Env:GITHUB_WORKSPACE
