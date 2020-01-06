@@ -13,9 +13,7 @@ namespace TodoDemoDotNet.Controllers
     public class TodosController : ApiController
     {
         static List<TodoRecord> todoRecords = new List<TodoRecord> {
-           new TodoRecord{ ID=1, Title="A", Completed=false },
-           new TodoRecord{ ID=2, Title="B", Completed=false },
-           new TodoRecord{ ID=3, Title="C", Completed=false },
+           new TodoRecord{ ID=Guid.NewGuid().ToString() , Title="Add more todos", Completed=false }
         };
 
 
@@ -27,9 +25,9 @@ namespace TodoDemoDotNet.Controllers
             return Ok(jsonResponse);
         }
 
-        // GET api/todos/get/5
+        // GET api/todos/get/UUID-HERE
         [HttpGet]
-        public IHttpActionResult GetById(int id)
+        public IHttpActionResult GetById(string id)
         {
             TodoRecord requestedTodo;
             requestedTodo = todoRecords.FirstOrDefault((todo) => todo.ID == id);
@@ -46,7 +44,7 @@ namespace TodoDemoDotNet.Controllers
         public IHttpActionResult AddTodo([NakedBody]string value)
         {
             TodoRecord newTodoRecord = JsonConvert.DeserializeObject<TodoRecord>(value);
-            newTodoRecord.ID = todoRecords.Last().ID + 1;
+            newTodoRecord.ID = Guid.NewGuid().ToString();
             todoRecords.Add(newTodoRecord);
             var jsonResponse = new { data = "OK" };
             return Ok(jsonResponse);
@@ -68,9 +66,9 @@ namespace TodoDemoDotNet.Controllers
             return Ok(jsonResponse);
         }
 
-        // DELETE api/todos/delete/5
+        // DELETE api/todos/delete/UUID-HERE
         [HttpDelete]
-        public IHttpActionResult DeleteTodo(int id)
+        public IHttpActionResult DeleteTodo(string id)
         {
             TodoRecord currentTodo = todoRecords.FirstOrDefault((todo) => todo.ID == id);
             if (currentTodo == null)
@@ -83,9 +81,9 @@ namespace TodoDemoDotNet.Controllers
             return Ok(jsonResponse);
         }
 
-        // POST api/todos/dup/5
+        // POST api/todos/dup/UUID-HERE
         [HttpPost]
-        public IHttpActionResult Duplicate(int id)
+        public IHttpActionResult Duplicate(string id)
         {
             TodoRecord currentTodo = todoRecords.FirstOrDefault((todo) => todo.ID == id);
             if (currentTodo == null)
@@ -94,7 +92,7 @@ namespace TodoDemoDotNet.Controllers
             }
             TodoRecord duplicateTodo = new TodoRecord()
             {
-                ID = todoRecords.Last().ID + 1,
+                ID = Guid.NewGuid().ToString(),
                 Title = currentTodo.Title,
                 Completed = currentTodo.Completed
             };
