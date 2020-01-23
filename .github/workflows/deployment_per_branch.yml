@@ -1,4 +1,4 @@
-name: .NET Framework Todo Demo App Production
+name: .NET Framework Todo Demo App
 
 on:
   push:
@@ -17,7 +17,13 @@ jobs:
         run: |
            cd $Env:GITHUB_WORKSPACE
            nuget restore
+      - name: Build and Deploy - Staging
+        if: github.ref == 'refs/heads/staging'
+        run: |
+           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+           .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=StagingDemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_STAGING_USER_PASSWORD }}
       - name: Build and Deploy - Production
+        if: github.ref == 'refs/heads/master'
         run: |
            cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
            .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=DemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_USER_PASSWORD }}
