@@ -1,0 +1,23 @@
+name: .NET Framework Todo Demo App Staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: Setup Nuget.exe
+        uses: warrenbuckley/Setup-Nuget@v1
+      - name: Restore
+        run: |
+           cd $Env:GITHUB_WORKSPACE
+           nuget restore
+      - name: Build and Deploy - Staging
+        run: |
+           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+           .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=StagingDemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_STAGING_USER_PASSWORD }}
