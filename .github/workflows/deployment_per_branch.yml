@@ -5,6 +5,8 @@ on:
     branches:
       - master
       - staging
+env:
+  OPSGENIE_ALIAS_BASE: "Rookout_TodoDemoDotNet-"
 
 jobs:
   build:
@@ -28,3 +30,43 @@ jobs:
         run: |
            cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
            .\MSBuild.exe $Env:GITHUB_WORKSPACE /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=DemoDeploymentProfile /p:Password=${{ secrets.REMOTE_IIS_USER_PASSWORD }}
+      - name: Open Opsgenie Alert
+        if: failure()
+        env:
+          OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
+        run: |
+           $branchRef = $Env:GITHUB_REF
+           $branchRef = $branchRef.Split("/")[-1].Replace("/", "-").Replace("_", "-")
+           $opsgenieAlias = $Env:OPSGENIE_ALIAS_BASE + $branchRef
+           $paramsInJson =@{
+             "message" = $opsgenieAlias + " FAILURE"
+             "description" = "https://github.com/Rookout/TodoDemoDotNet/commit/" + $Env:GITHUB_SHA + "/checks?check_suite_id=" + $Env:GITHUB_ACTION
+             "alias" = $opsgenieAlias
+             "details" = @{
+               "status" = "FAILURE"
+             }
+             "entity" = "github-action"
+             "source" = "github-action"
+             "user" = "github"
+           } | ConvertTo-Json
+           $headers = @{
+             "Authorization" = "GenieKey " + $Env:OPSGENIE_API_KEY 
+           }
+           Invoke-WebRequest -Uri https://api.opsgenie.com/v2/alerts -Method Post -ContentType "application/json" -Body $paramsInJson -Headers $headers
+      - name: Close Opsgenie Alert
+        if: success()
+        env:
+          OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
+        run: |
+            $branchRef = $Env:GITHUB_REF
+            $branchRef = $branchRef.Split("/")[-1].Replace("/", "-").Replace("_", "-")
+            $opsgenieAlias = $Env:OPSGENIE_ALIAS_BASE + $branchRef
+            $paramsInJson =@{
+              "source" = "github-action"
+              "user" = "github"
+            } | ConvertTo-Json
+            $headers = @{
+              "Authorization" = "GenieKey " + $Env:OPSGENIE_API_KEY 
+            }
+            $uri = "https://api.opsgenie.com/v2/alerts/" + $opsgenieAlias + "/close?identifierType=alias"
+            Invoke-WebRequest -Uri $uri -Method Post -ContentType "application/json" -Headers $headers -Body $paramsInJson
