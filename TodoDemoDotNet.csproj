@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <ProjectGuid>{6EB3EB1A-F6D5-48B4-93ED-C24FCE8E9A8B}</ProjectGuid>
+    <MSBuildGitHashCommand>git config --get remote.origin.url %26%26 git rev-parse HEAD</MSBuildGitHashCommand>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -138,6 +139,7 @@
       <Version>12.0.2</Version>
     </PackageReference>
     <PackageReference Include="Rookout" Version="0.1.33" />
+    <PackageReference Include="MSBuildGitHash" Version="2.0.1" />
     <PackageReference Include="WebGrease">
       <Version>1.6.0</Version>
     </PackageReference>
