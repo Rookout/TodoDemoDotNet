@@ -1,10 +1,7 @@
 name: .NET Framework Todo Demo App
 
-on:
-  push:
-    branches:
-      - master
-      - staging
+on: [push]
+
 env:
   OPSGENIE_ALIAS_BASE: "Rookout_TodoDemoDotNet-"
 
@@ -22,6 +19,7 @@ jobs:
       - name: Restore
         run: |
            cd $Env:GITHUB_WORKSPACE
+           dasfdafdssdaf
            nuget restore
       - name: Build and Deploy - Staging
         if: github.ref == 'refs/heads/staging'
