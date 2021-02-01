@@ -13,7 +13,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
       - name: Setup Nuget.exe
-        uses: warrenbuckley/Setup-Nuget@v1
+        with:
+          nuget-api-key: ${{ secrets.NuGetAPIKey }}
+          nuget-version: '5.x'
+        uses: nuget/setup-nuget@v1
       - name: Restore
         run: |
            cd $Env:GITHUB_WORKSPACE
