@@ -31,7 +31,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-	<EmbedAllSources>true</EmbedAllSources>
+    <EmbedAllSources>true</EmbedAllSources>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -138,7 +138,7 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Rookout" Version="0.1.72" />
+    <PackageReference Include="Rookout" Version="0.1.99" />
     <PackageReference Include="MSBuildGitHash" Version="2.0.1" />
     <PackageReference Include="WebGrease">
       <Version>1.6.0</Version>
@@ -147,6 +147,44 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\DemoDeploymentProfile.pubxml" />
     <None Include="Properties\PublishProfiles\StagingDemoDeploymentProfile.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HugeLib\HugeLib.csproj">
+      <Project>{44b4500f-0fcd-4879-97e2-f46d99fa3fc6}</Project>
+      <Name>HugeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib2\HugeLib2.csproj">
+      <Project>{5c5d52e7-2d7d-481d-a9d6-9be46137af55}</Project>
+      <Name>HugeLib2</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib3\HugeLib3.csproj">
+      <Project>{4b17708b-44fb-4e54-88a5-01db4e2456e1}</Project>
+      <Name>HugeLib3</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib4\HugeLib4.csproj">
+      <Project>{c04eab97-1b26-47f8-9399-9999048d9dfb}</Project>
+      <Name>HugeLib4</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib5\HugeLib5.csproj">
+      <Project>{7f5ff468-d212-4d65-afd3-b33fa8621f82}</Project>
+      <Name>HugeLib5</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib6\HugeLib6.csproj">
+      <Project>{7035f97a-a33e-4ac7-b9a4-c183a60ceed6}</Project>
+      <Name>HugeLib6</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib7\HugeLib7.csproj">
+      <Project>{6c45adbf-26a1-493f-a70f-a217ee676635}</Project>
+      <Name>HugeLib7</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib8\HugeLib8.csproj">
+      <Project>{4c7541df-bdd4-4c8d-86b7-5552f59eaf75}</Project>
+      <Name>HugeLib8</Name>
+    </ProjectReference>
+    <ProjectReference Include="HugeLib9\HugeLib9.csproj">
+      <Project>{297b5eae-e91b-4e0e-b44b-49b08e0323b9}</Project>
+      <Name>HugeLib9</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace HugeLib4
+{
+    public class Class1444
+    {
+        public Class1444()
+        {
+            Console.WriteLine(this.GetType().Name);
+        }
+    }
+}

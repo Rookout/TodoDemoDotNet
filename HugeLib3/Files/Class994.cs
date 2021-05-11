@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace HugeLib3
+{
+    public class Class994
+    {
+        public Class994()
+        {
+            Console.WriteLine(this.GetType().Name);
+        }
+    }
+}

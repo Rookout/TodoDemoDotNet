@@ -7,6 +7,7 @@ using System.Web.Http;
 using TodoDemoDotNet.Models;
 using Newtonsoft.Json;
 using TodoDemoDotNet.NakedBody;
+using HugeLib;
 
 namespace TodoDemoDotNet.Controllers
 {
@@ -47,6 +48,14 @@ namespace TodoDemoDotNet.Controllers
             newTodoRecord.ID = Guid.NewGuid().ToString();
             todoRecords.Add(newTodoRecord);
             var jsonResponse = new { data = "OK" };
+
+
+            HugeLib.Class0 cl0 = new Class0();
+            HugeLib.Class10 cl10 = new Class10();
+            
+            HugeLib2.Class0 cl20 = new HugeLib2.Class0();
+            HugeLib2.Class10 cl210 = new HugeLib2.Class10();
+
             return Ok(jsonResponse);
         }
 
