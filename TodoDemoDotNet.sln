@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HugeLib8", "HugeLib8\HugeLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HugeLib9", "HugeLib9\HugeLib9.csproj", "{297B5EAE-E91B-4E0E-B44B-49B08E0323B9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetRook", "..\DotNetRook\DotNetRook\DotNetRook.csproj", "{D0B3990F-74A4-41E3-9F99-9AB5359C2E24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{297B5EAE-E91B-4E0E-B44B-49B08E0323B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{297B5EAE-E91B-4E0E-B44B-49B08E0323B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{297B5EAE-E91B-4E0E-B44B-49B08E0323B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B3990F-74A4-41E3-9F99-9AB5359C2E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B3990F-74A4-41E3-9F99-9AB5359C2E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B3990F-74A4-41E3-9F99-9AB5359C2E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B3990F-74A4-41E3-9F99-9AB5359C2E24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
