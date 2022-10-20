@@ -109,7 +109,7 @@ namespace TodoDemoDotNet.Controllers
             var jsonResponse = new { data = "OK" };
             return Ok(jsonResponse);
         }
-        // DELETE api/todos/delete-all
+        // DELETE api/todos/delete_all
         [HttpDelete]
         public IHttpActionResult DeleteAllItems() 
         {
