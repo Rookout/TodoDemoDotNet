@@ -96,11 +96,18 @@
                 });
                 this.reloadOnFinish(action);
             },
+            removeAll() {
+                const action = $.ajax('/todos/delete_all', {
+                    method: 'DELETE'
+                });
+                this.reloadOnFinish(action);
+            },
             reloadOnFinish(promise) {
                 promise.done((data) => {
                     return this.reloadTodos();
                 }).catch(console.log);
             },
+            
             reloadTodos() {
                 const vm = this;
                 $.ajax('/api/todos', {
