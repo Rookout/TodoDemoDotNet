@@ -43,11 +43,6 @@ namespace TodoDemoDotNet
                 routeTemplate: "api/{controller}/delete/{id}",
                 new { controller = "todos", action = "DeleteTodo", id = RouteParameter.Optional }
             );
-              config.Routes.MapHttpRoute(
-                name: "DeleteAllItems",
-                routeTemplate: "api/{controller}/delete_all",
-                new { controller = "todos", action = "DeleteAllItems" }
-            );
 
             config.Routes.MapHttpRoute(
                 name: "UpdateTodo",
@@ -65,6 +60,12 @@ namespace TodoDemoDotNet
                 name: "ClearCompletedTodos",
                 routeTemplate: "api/{controller}/clear_completed",
                 new { controller = "todos", action = "ClearCompleted" }
+            );
+
+                config.Routes.MapHttpRoute(
+                name: "DeleteAllItems",
+                routeTemplate: "api/{controller}/delete_all",
+                new { controller = "todos", action = "DeleteAllItems" }
             );
         }
     }
