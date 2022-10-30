@@ -115,7 +115,7 @@ namespace TodoDemoDotNet.Controllers
         {
              todoRecords.RemoveAll((todo) => true);
             var jsonResponse = new { data = "OK" };
-            return Ok(jsonResponse)
+            return Ok(jsonResponse);
         }
     }
 }
