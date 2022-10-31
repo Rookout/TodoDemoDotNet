@@ -135,7 +135,7 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Rookout" Version="0.1.126-build-582971" />
+    <PackageReference Include="Rookout" Version="0.1.126-build-1884b8" />
     <PackageReference Include="WebGrease">
       <Version>1.6.0</Version>
     </PackageReference>
